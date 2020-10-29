@@ -58,9 +58,10 @@ if (id != null && login) {
 			    		</form>
 			  		</div>
 			  		<div class="card-footer">
-			  			<button type="button" class="btn btn-primary" id="btnLogin">로그인</button>
+			  			<button type="button" class="btn btn-success" id="btnLogin">로그인</button>
 			  			<div class="float-right">
-			  				<a href="<c:url value='/' />auth/register.jsp">회원가입</a>
+							<button type="button" class="btn btn-primary"
+									onclick="location.href='<c:url value='/' />auth/register.jsp'">회원가입</button>
 			  			</div>
 			  		</div>
 				</div>

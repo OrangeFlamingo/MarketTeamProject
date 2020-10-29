@@ -49,19 +49,19 @@ if (id != null && login) {
 			    		<form id="registerForm" method="post" action="<c:url value='/' />register">
 			    			<div class="form-group">
     							<label>아이디(필수)</label>
-    							<input type="text" class="form-control" name="id" placeholder="학번(5-10글자)" required maxlength="10" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+    							<input type="text" class="form-control" name="id" placeholder="아이디" required maxlength="15">
   							</div>
 			    			<div class="form-group">
     							<label>비밀번호(필수)</label>
-    							<input type="password" class="form-control" name="password" placeholder="비밀번호(최대20글자)" required maxlength="20">
+    							<input type="password" class="form-control" name="password" placeholder="비밀번호(최대 25글자)" required maxlength="25">
   							</div>
 			    			<div class="form-group">
-    							<label>이름(필수)</label>
-    							<input type="text" class="form-control" name="name" placeholder="이름" required maxlength="4">
+    							<label>닉네임(필수)</label>
+    							<input type="text" class="form-control" name="name" placeholder="닉네임">
   							</div>			    			
   							<div class="form-group">
     							<label>이메일(선택)</label>
-    							<input type="email" class="form-control" name="email" placeholder="이메일" >
+    							<input type="email" class="form-control" name="email" placeholder="이메일">
   							</div>
   							<div class="form-group">
     							<label>전화번호(선택)</label>
@@ -70,9 +70,10 @@ if (id != null && login) {
 			    		</form>
 			  		</div>
 			  		<div class="card-footer">
-			  			<button type="button" class="btn btn-primary" id="btnRegister">회원가입</button>
+			  			<button class="btn btn-success" id="btnRegister">회원가입</button>
 			  			<div class="float-right">
-			  				<a href="<c:url value='/' />auth/login.jsp">로그인</a>
+							<button type="button" class="btn btn-warning"
+									onclick="location.href='<c:url value='/' />auth/login.jsp'">로그인</button>
 			  			</div>
 			  		</div>
 				</div>

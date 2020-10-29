@@ -71,7 +71,7 @@ if (id == null || !login) {
 						</div>
 						<div class="form-group">
 							<label>전화번호</label>
-							<input type="text" class="form-control" name="phone" placeholder="전화번호">
+							<input type="text" class="form-control" name="phone" placeholder="010-XXXX-XXXX" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(^02|^0505|^1[0-9]{3}|^0[0-9]{2})([0-9]+)?([0-9]{4})$/, '$1-$2-$3').replace('--', '-') ;">
 						</div>
 					</form>
 				</div>
@@ -84,7 +84,7 @@ if (id == null || !login) {
 						</div>
 						<div class="form-group">
 							<label>전화번호</label>
-							<input type="text" class="form-control" name="phone" placeholder="전화번호">
+							<input type="text" class="form-control" name="phone" placeholder="010-XXXX-XXXX" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(^02|^0505|^1[0-9]{3}|^0[0-9]{2})([0-9]+)?([0-9]{4})$/, '$1-$2-$3').replace('--', '-') ;">
 						</div>
 						<div class="form-group">
 							<label>이메일</label>
