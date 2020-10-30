@@ -131,8 +131,10 @@ try {
 		<!-- 댓글 보여주기 -->
 		<div class="card" style="margin-top:20px;">
         		<div class="card-body">
+        		    <div>
                 	<p class="card-title"><%=com_userId %> <%=com_dateTime %></p>
                 	<p class="card-text"><%=com_content %></p>
+                	</div>
                 </div>
                 <div class="card-footer">
                     <div class="float-right">

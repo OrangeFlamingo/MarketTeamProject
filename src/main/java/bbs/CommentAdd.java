@@ -1,5 +1,7 @@
 package bbs;
 
+import org.json.simple.JSONObject;
+
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -44,6 +46,9 @@ public class CommentAdd extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
 
+        response.setContentType("application/json;charset=UTF-8");
+        response.setCharacterEncoding("UTF-8");
+
         HttpSession session = request.getSession(true);
         String com_id = request.getParameter("com_id");
         String com_userId = (String) session.getAttribute("com_userId");
@@ -63,13 +68,13 @@ public class CommentAdd extends HttpServlet {
             state = conn.createStatement();
 
             String sql;
-            sql = "INSERT INTO WEB_COMMENT (ID, CONTENT, USER_ID, DATE_TIME) VALUES (?, ?, ?, ?);";
+            sql = "INSERT INTO WEB_COMMENT (ID, CONTENT, DATE_TIME) VALUES (?, ?, ?);";
 
             try {
                 pstmt = conn.prepareStatement(sql);
                 pstmt.setString(1, com_id);
-                pstmt.setString(2, com_content);
-                pstmt.setString(3, com_userId);
+                pstmt.setString(2, com_userId);
+                pstmt.setString(3, com_content);
                 pstmt.setString(4, com_dateTime);
                 pstmt.executeUpdate();
             } catch(Exception e) {
@@ -97,7 +102,9 @@ public class CommentAdd extends HttpServlet {
             }
         }
 
-        response.sendRedirect("../board/view.jsp");
+        JSONObject data = new JSONObject();
+        data.put("data", "success");
+        response.getWriter().println(data);
     }
 
 }
