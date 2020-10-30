@@ -50,8 +50,7 @@ public class CommentAdd extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
 
         HttpSession session = request.getSession(true);
-        String com_id = request.getParameter("com_id");
-        String com_userId = (String) session.getAttribute("com_userId");
+        String com_id = session.getAttribute("id").toString();
         String com_content = request.getParameter("com_content");
 
         Date time = new Date();
@@ -71,11 +70,11 @@ public class CommentAdd extends HttpServlet {
             sql = "INSERT INTO WEB_COMMENT (ID, CONTENT, DATE_TIME) VALUES (?, ?, ?);";
 
             try {
+                System.out.println(com_id + ", " + com_content + ", " + com_dateTime);
                 pstmt = conn.prepareStatement(sql);
                 pstmt.setString(1, com_id);
-                pstmt.setString(2, com_userId);
-                pstmt.setString(3, com_content);
-                pstmt.setString(4, com_dateTime);
+                pstmt.setString(2, com_content);
+                pstmt.setString(3, com_dateTime);
                 pstmt.executeUpdate();
             } catch(Exception e) {
                 System.out.println("e: " + e.toString());
